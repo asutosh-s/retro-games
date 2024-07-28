@@ -14,7 +14,7 @@ function Snake({ snake }) {
                         left: `${box.x}%`,
                         top: `${box.y}%`,
                         border: (i===snake.length-1) ? "1px solid gray" : "1px solid black", 
-                        zIndex: 1,
+                        zIndex: 0,
                     }} />
                 ))
             }

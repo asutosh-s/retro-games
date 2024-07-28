@@ -1,3 +1,4 @@
+import '../App.css';
 
 function Food({ position, type }) {
     return (
@@ -11,7 +12,7 @@ function Food({ position, type }) {
                     position: "absolute",
                     left: `${position.x}%`,
                     top: `${position.y}%`,
-                    zIndex: 0,
+                    zIndex: 1,
                 }}
             />
         ) : (
@@ -24,7 +25,7 @@ function Food({ position, type }) {
                     position: "absolute",
                     left: `${position.x}%`,
                     top: `${position.y}%`,
-                    zIndex: 0,
+                    zIndex: 1,
                 }}
             />
         )

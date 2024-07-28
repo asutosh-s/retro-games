@@ -14,7 +14,7 @@ const initialSnake = {
   direction: "ArrowRight",
 }
 
-const showSpeedFoodDuration = 8000;
+const showSpeedFoodDuration = 7000;
 const notShowSpeedFoodDuration = 15000;
 
 function getFoodPosition() {
@@ -75,17 +75,12 @@ function App() {
   useEffect(() => {
     // Early exit if conditions are not met
     if (!started || snakespeed >= 300) {
-      console.log("Conditions not met, exiting useEffect");
       return;
     }
-
-    console.log("snakespeed:", snakespeed);
-    console.log("Setting interval for speed food");
 
     let visible = false;
     // Set up a single interval to handle both showing and hiding
     const speedFoodInterval = setInterval(() => {
-      console.log("Toggling speed food position");
       setSpeedfoodposition((prevSpeedfoodposition) => {
         if (prevSpeedfoodposition === null) {
           return getFoodPosition();
@@ -136,7 +131,7 @@ function App() {
     if ((foodposition.x !== x) || (foodposition.y !== y)) tmpSnake.shift();
     else {
       setFoodposition(getFoodPosition());
-      setScore((prevScore) => prevScore + 50)
+      setScore((prevScore) => prevScore + 10)
     }
     setSnake(tmpSnake);
 
