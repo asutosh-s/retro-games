@@ -1,19 +1,34 @@
 
-function Food({ position }) {
+function Food({ position, type }) {
     return (
-        <div
-            style={{
-                width: "12px",
-                height: "12px",
-                backgroundColor: "#3dd1e7",
-                margin: "5px",
-                position: "absolute",
-                left: `${position.x}%`,
-                top: `${position.y}%`,
-                zIndex: 0,
-            }}
-        />
-    )
+        type === "food" ? (
+            <div
+                style={{
+                    width: "12px",
+                    height: "12px",
+                    backgroundColor: "#339933",
+                    margin: "5px",
+                    position: "absolute",
+                    left: `${position.x}%`,
+                    top: `${position.y}%`,
+                    zIndex: 0,
+                }}
+            />
+        ) : (
+            <div
+                style={{
+                    width: "12px",
+                    height: "12px",
+                    backgroundColor: "#ff0000", // Use a valid hex color code for red
+                    margin: "5px",
+                    position: "absolute",
+                    left: `${position.x}%`,
+                    top: `${position.y}%`,
+                    zIndex: 0,
+                }}
+            />
+        )
+    );
 }
 
 export default Food;

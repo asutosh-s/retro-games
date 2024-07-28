@@ -42,9 +42,33 @@ button {
 }
 
 .count {
-  position: absolute;
   font-size: 2rem;
   bottom: 0px;
   color: #eb2d2d;
   opacity: 0.5;
+  margin-bottom: 10px;
+}
+
+.game-area {
+  display: flex;
+  flex-direction: column; /* Align children in a column */
+  align-items: center; /* Center children horizontally (optional) */
+  justify-content: center; /* Center children vertically (optional) */
+  height: 100vh; /* Full height of the viewport */
+}
+
+.open-modal-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #5486bb;
+  opacity: 0.3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.open-modal-button:hover {
+  background-color: #003063;
 }
