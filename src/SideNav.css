@@ -1,0 +1,23 @@
+/* SideNav.css */
+.sidenav {
+    height: 100vh; /* Full-height */
+    width: 250px; /* Sidebar width */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Background color */
+    padding-top: 20px; /* Space at the top */
+  }
+  
+  .sidenav a {
+    padding: 10px 15px; /* Padding for links */
+    text-decoration: none; /* Remove underline */
+    font-size: 18px; /* Font size */
+    color: #818181; /* Link color */
+    display: block; /* Display block to have full width */
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1; /* Link color on hover */
+  }
+  

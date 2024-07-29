@@ -1,82 +1,10 @@
-.App {
-  width: 500px;
-  height: 500px;
-  border: 1px solid white;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-family: monospace;
-  border-radius: 10px;
+/* App.css */
+.app-container {
+  display: flex; /* Flexbox layout */
 }
 
-button {
-  font-family: inherit;
-  font-size: 1.5rem;
-  border-radius: 10px;
-  color: black;
-  width: 50%;
-  max-width: 150px;
-  height: 50px;
-  border: none;
-  background-color: #e73d9f;
-  font-weight: 600;
-  z-index: 4;
-  cursor: pointer;
+.main-content {
+  margin-left: 250px; /* Space for the sidebar */
+  padding: 20px; /* Padding for content */
+  flex: 1; /* Flex-grow to fill remaining space */
 }
-
-.text {
-  color: #eb2d2d;
-  z-index: 4;
-  opacity: 0.5;
-}
-
-.arrow-msg {
-  font-size: 1rem;
-  margin: 10px;
-}
-
-.game-over {
-  font-size: 3rem;
-}
-
-.count {
-  font-size: 2rem;
-  bottom: 0px;
-  color: #eb2d2d;
-  opacity: 0.5;
-  margin-bottom: 10px;
-}
-
-.game-area {
-  display: flex;
-  flex-direction: column; /* Align children in a column */
-  align-items: center; /* Center children horizontally (optional) */
-  justify-content: center; /* Center children vertically (optional) */
-  height: 100vh; /* Full height of the viewport */
-}
-
-.open-modal-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #5486bb;
-  opacity: 0.3;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.open-modal-button:hover {
-  background-color: #003063;
-}
-
-/* styles.css */
-@keyframes blink {
-  0% { opacity: 1; }
-  20% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
