@@ -2,8 +2,3 @@
 .app-container {
   display: flex; /* Flexbox layout */
 }
-
-.main-content {
-  padding: 10px; /* Padding for content */
-  flex: 1; /* Flex-grow to fill remaining space */
-}

@@ -3,6 +3,7 @@ import './SnakeGame.css';
 import Snake from './Snake'
 import Food from './Food';
 import Modal from './Modal';
+import { useSwipeable } from 'react-swipeable';
 
 const initialSnake = {
   snake: [
@@ -156,64 +157,95 @@ function SnakeGame() {
     }
   }
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      if (gameover) return;
+      if (doNotTakeDirection("ArrowLeft")) return;
+      setDirection("ArrowLeft");
+      move("ArrowLeft");
+    },
+    onSwipedRight: () => {
+      if (gameover) return;
+      if (doNotTakeDirection("ArrowRight")) return;
+      setDirection("ArrowRight");
+      move("ArrowRight");
+    },
+    onSwipedUp: () => {
+      if (gameover) return;
+      if (doNotTakeDirection("ArrowUp")) return;
+      setDirection("ArrowUp");
+      move("ArrowUp");
+    },
+    onSwipedDown: () => {
+      if (gameover) return;
+      if (doNotTakeDirection("ArrowDown")) return;
+      setDirection("ArrowDown");
+      move("ArrowDown");
+    },
+    preventScrollOnSwipe: true,
+    trackMouse: true,
+  });
+
   return (
-    <div className='game-area'>
-      <div className="count"> score : {score} </div>
-      <div
-        className="App"
-        onKeyDown={(e) => {
-          if (doNotTakeDirection(e.key)) return;
-          setDirection(e.key);
-          move(e.key);
-        }}
-        ref={playgroundRef} tabIndex={0}
-      >
-        <Snake snake={snake} lastDirection={initialSnake.direction} />
-        {
-          !started &&
-          <>
-            <button
-              onClick={() => {
+    <div {...handlers}>
+      <div className='game-area'>
+        <div className="count"> score : {score} </div>
+        <div
+          className="App"
+          onKeyDown={(e) => {
+            if (doNotTakeDirection(e.key)) return;
+            setDirection(e.key);
+            move(e.key);
+          }}
+          ref={playgroundRef} tabIndex={0}
+        >
+          <Snake snake={snake} lastDirection={initialSnake.direction} />
+          {
+            !started &&
+            <>
+              <button
+                onClick={() => {
+                  setStarted(true)
+                  playgroundRef.current.focus();
+                }} type="submit">
+                Start
+              </button>
+              <div className='arrow-msg text'>Press arrow keys to play!</div>
+            </>
+          }
+          {
+            gameover &&
+            <>
+              <div className='game-over text'>Game over!</div>
+              <button onClick={() => {
+                setSnake(initialSnake.snake)
                 setStarted(true)
+                setGameover(false)
+                setDirection(initialSnake.direction)
                 playgroundRef.current.focus();
               }} type="submit">
-              Start
-            </button>
-            <div className='arrow-msg text'>Press arrow keys to play!</div>
-          </>
-        }
-        {
-          gameover &&
-          <>
-            <div className='game-over text'>Game over!</div>
-            <button onClick={() => {
-              setSnake(initialSnake.snake)
-              setStarted(true)
-              setGameover(false)
-              setDirection(initialSnake.direction)
-              playgroundRef.current.focus();
-            }} type="submit">
-              Restart
-            </button>
-          </>
-        }
-        {
-          !gameover &&
-          <>
-            <Food position={foodposition} type="food" />
-          </>
-        }
-        {
-          !gameover && speedfoodposition !== null &&
-          <>
-            <Food position={speedfoodposition} type="speedfood" />
-          </>
-        }
+                Restart
+              </button>
+            </>
+          }
+          {
+            !gameover &&
+            <>
+              <Food position={foodposition} type="food" />
+            </>
+          }
+          {
+            !gameover && speedfoodposition !== null &&
+            <>
+              <Food position={speedfoodposition} type="speedfood" />
+            </>
+          }
+        </div>
+        <button onClick={openModal} className="open-modal-button">
+          Instructions
+        </button>
+        <Modal isOpen={isModalOpen} onClose={closeModal} />
       </div>
-      <button onClick={openModal} className="open-modal-button">
-        Instructions
-      </button>
-      <Modal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 }

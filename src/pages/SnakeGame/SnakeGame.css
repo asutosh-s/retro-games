@@ -10,7 +10,6 @@
     flex-direction: column;
     font-family: monospace;
     border-radius: 10px;
-    margin: auto; /* Center horizontally with margin auto */
 }
 
 /* Button styles */
@@ -93,7 +92,7 @@ button:hover {
 /* Responsive styles for mobile devices */
 @media (max-width: 768px) {
     .App {
-        width: 100%; /* Increase width to utilize more screen space on smaller devices */
+        width: 100vw; /* Increase width to utilize more screen space on smaller devices */
     }
 
     button {
