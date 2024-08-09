@@ -1,0 +1,74 @@
+/* Basic styles for the navbar */
+.navbar {
+  position: fixed; /* Fixed positioning to stay at the top */
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  width: 100%; /* Ensure the navbar spans the full width */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for visual separation */
+  background-color: #fff; /* Background color for visibility */
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Styles for the hamburger icon */
+.hamburger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30px;
+  height: 21px;
+  background: none;
+  border: none;
+}
+
+/* Individual lines in the hamburger icon */
+.line {
+  background-color: #333;
+  height: 3px;
+  width: 30px;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+/* Styles for the dropdown menu */
+.dropdown {
+  position: absolute;
+  top: 50px; /* Adjust based on the height of the hamburger icon */
+  right: 0;
+  background-color: #333;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 150px; /* Adjust width as needed */
+  max-width: 100%;
+}
+
+/* Dropdown link styles */
+.dropdown-link {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-bottom: 1px solid #444;
+}
+
+.dropdown-link:hover {
+  background-color: #555;
+}
+
+.dropdown-link:last-child {
+  border-bottom: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .dropdown {
+    width: 100vw; /* Full-width dropdown on small screens */
+    right: 0;
+    top: 50px; /* Adjust based on the height of the hamburger icon */
+  }
+}

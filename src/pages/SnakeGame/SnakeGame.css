@@ -1,0 +1,108 @@
+/* Container styles */
+.App {
+    width: 500px;
+    height: 500px;
+    border: 1px solid white;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-family: monospace;
+    border-radius: 10px;
+    margin: auto; /* Center horizontally with margin auto */
+}
+
+/* Button styles */
+button {
+    font-family: inherit;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    color: black;
+    width: 50%;
+    max-width: 150px;
+    height: 50px;
+    border: none;
+    background-color: #e73d9f;
+    font-weight: 600;
+    z-index: 4;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Shadow for better visual */
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #c92c77; /* Slightly darker color on hover */
+}
+
+/* Text styling */
+.text {
+    color: #eb2d2d;
+    z-index: 4;
+    opacity: 0.5;
+}
+
+/* Arrow message styling */
+.arrow-msg {
+    font-size: 1rem;
+    margin: 10px;
+}
+
+/* Game over message styling */
+.game-over {
+    font-size: 3rem;
+}
+
+/* Count styling */
+.count {
+    font-size: 2rem;
+    color: #eb2d2d;
+    opacity: 0.5;
+    margin-bottom: 10px;
+}
+
+/* Game area styles */
+.game-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* Modal button styles */
+.open-modal-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #5486bb;
+    opacity: 0.3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+/* Modal button hover effect */
+.open-modal-button:hover {
+    background-color: #003063;
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+    .App {
+        width: 100%; /* Increase width to utilize more screen space on smaller devices */
+    }
+
+    button {
+        font-size: 1.2rem; /* Adjust font size for better readability on small screens */
+        width: 80%; /* Increase width for better usability */
+        max-width: none; /* Remove max-width constraint */
+    }
+
+    .count, .game-over {
+        font-size: 1.5rem; /* Reduce font size for better fit on smaller screens */
+    }
+}
