@@ -6,6 +6,7 @@ import Contact from './pages/Contact';
 import './App.css'; // Import your global CSS
 import SnakeGame from './pages/SnakeGame/SnakeGame';
 import Navbar from './components/Navbar';
+import Tetris from './pages/Tetris/components/Tetris';
 
 const App = () => {
   return (
@@ -14,10 +15,12 @@ const App = () => {
         <Navbar />
         <div className="main-content">
           <Routes>
-            <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/snake" element={<SnakeGame />} />
+            <Route path="/tetris" element={<Tetris />} />
           </Routes>
         </div>
       </div>

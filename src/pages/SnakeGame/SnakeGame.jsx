@@ -159,25 +159,25 @@ function SnakeGame() {
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
-      if (gameover) return;
+      if (gameover || !started) return;
       if (doNotTakeDirection("ArrowLeft")) return;
       setDirection("ArrowLeft");
       move("ArrowLeft");
     },
     onSwipedRight: () => {
-      if (gameover) return;
+      if (gameover || !started) return;
       if (doNotTakeDirection("ArrowRight")) return;
       setDirection("ArrowRight");
       move("ArrowRight");
     },
     onSwipedUp: () => {
-      if (gameover) return;
+      if (gameover || !started) return;
       if (doNotTakeDirection("ArrowUp")) return;
       setDirection("ArrowUp");
       move("ArrowUp");
     },
     onSwipedDown: () => {
-      if (gameover) return;
+      if (gameover || !started) return;
       if (doNotTakeDirection("ArrowDown")) return;
       setDirection("ArrowDown");
       move("ArrowDown");
@@ -191,7 +191,7 @@ function SnakeGame() {
       <div className='game-area'>
         <div className="count"> score : {score} </div>
         <div
-          className="App"
+          className="game-board"
           onKeyDown={(e) => {
             if (doNotTakeDirection(e.key)) return;
             setDirection(e.key);

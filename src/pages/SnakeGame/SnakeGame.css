@@ -1,5 +1,5 @@
 /* Container styles */
-.App {
+.game-board {
     width: 500px;
     height: 500px;
     border: 1px solid white;
@@ -68,6 +68,7 @@ button:hover {
     justify-content: center;
     height: 100%;
     width: 100%;
+    margin-top: 50px;
 }
 
 /* Modal button styles */
@@ -91,8 +92,8 @@ button:hover {
 
 /* Responsive styles for mobile devices */
 @media (max-width: 768px) {
-    .App {
-        width: 100vw; /* Increase width to utilize more screen space on smaller devices */
+    .game-board {
+        width: 95vw; /* Increase width to utilize more screen space on smaller devices */
     }
 
     button {

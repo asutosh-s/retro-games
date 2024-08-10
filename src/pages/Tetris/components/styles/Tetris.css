@@ -1,0 +1,45 @@
+/* Styling for the container StyledTetris */
+.StyledTetris {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Flexbox container inside StyledTetris */
+.StyledTetris-child{
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .StyledTetris-child {
+        flex-direction: row;
+    }
+}
+
+/* Styling for Stage component */
+.Stage {
+    width: 100%;
+    max-width: 8rem; /* Adjust to match sm:w-32 */
+    height: 100%;
+    max-height: 25rem; /* Adjust to match sm:h-100 */
+}
+
+/* Styling for the overlay when game is over */
+.game-over-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+/* Styling for StartButton component */
+.StartButton {
+    position: relative;
+}

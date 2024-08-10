@@ -37,6 +37,7 @@
   flex-direction: column;
   width: 150px; /* Adjust width as needed */
   max-width: 100%;
+  z-index: 5;
 }
 
 /* Dropdown link styles */
@@ -58,7 +59,7 @@
 /* Responsive styles */
 @media (max-width: 768px) {
   .dropdown {
-    width: 100vw; /* Full-width dropdown on small screens */
+    width: 40vw; /* Full-width dropdown on small screens */
     right: 0;
     top: 50px; /* Adjust based on the height of the hamburger icon */
   }
