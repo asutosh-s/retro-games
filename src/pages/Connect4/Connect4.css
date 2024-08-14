@@ -28,6 +28,18 @@
     border: 1px double gray;
 }
 
+.connect4-player-info.gray {
+    background-color: gray;
+}
+
+.connect4-player-info.red {
+    background-color: rgb(254, 66, 66);
+}
+
+.connect4-player-info.yellow {
+    background-color: rgb(247, 247, 95);
+}
+
 .connect4-action-dots {
     display: grid;
     grid-template-columns: repeat(7, 50px);
@@ -37,8 +49,11 @@
 }
 
 .connect4-action-dot {
-    border: 1px solid gray;
+    border: 2px double rgb(255, 255, 255);
     border-radius: 50%;
+    padding: 15px;
+    border-right-color: rgb(166, 166, 166);
+    border-bottom-color: rgb(121, 121, 121);
 }
 
 .connect4-game-board {

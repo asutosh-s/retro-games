@@ -14,7 +14,7 @@ const Connect4 = () => {
     const [playerWin, setPlayerWin] = useState(0)
 
     const handleClick = (clickedDot) => {
-        if(!startGame || gameOver) return;
+        if (!startGame || gameOver) return;
         let tempGrid = grid;
 
         // check for already filled column
@@ -23,17 +23,17 @@ const Connect4 = () => {
             return;
         }
         let i;
-        for (i = 0; i <= tempGrid.length-1; ++i) {
+        for (i = 0; i <= tempGrid.length - 1; ++i) {
             if (tempGrid[i][clickedDot] !== 0) {
                 break;
             }
         }
-        tempGrid[i-1][clickedDot] = player;
+        tempGrid[i - 1][clickedDot] = player;
 
         // check for connect-4
-        for(let j=0; j<=tempGrid.length-1; ++j) {
-            for(let k=0; k<=tempGrid[0].length-4; ++k) {
-                if((tempGrid[j][k] === player) && (tempGrid[j][k+1] === player) && (tempGrid[j][k+2] === player) && (tempGrid[j][k+3] ===player*4)) {
+        for (let j = 0; j <= tempGrid.length - 1; ++j) {
+            for (let k = 0; k <= tempGrid[0].length - 4; ++k) {
+                if ((tempGrid[j][k] === player) && (tempGrid[j][k + 1] === player) && (tempGrid[j][k + 2] === player) && (tempGrid[j][k + 3] === player)) {
                     setGameOver(true)
                     setPlayerWin(player)
                     setStartGame(false)
@@ -42,9 +42,9 @@ const Connect4 = () => {
         }
 
         // check for connect-4
-        for(let j=0; j<=tempGrid[0].length-1; ++j) {
-            for(let k=0; k<=tempGrid.length-4; ++k) {
-                if((tempGrid[k][j]===player) && (tempGrid[k+1][j] === player) && (tempGrid[k+2][j] === player) && (tempGrid[k+3][j] === player)) {
+        for (let j = 0; j <= tempGrid[0].length - 1; ++j) {
+            for (let k = 0; k <= tempGrid.length - 4; ++k) {
+                if ((tempGrid[k][j] === player) && (tempGrid[k + 1][j] === player) && (tempGrid[k + 2][j] === player) && (tempGrid[k + 3][j] === player)) {
                     setGameOver(true)
                     setPlayerWin(player)
                     setStartGame(false)
@@ -53,10 +53,10 @@ const Connect4 = () => {
         }
 
         // check for connect-4
-        for(let j=0; j<=tempGrid.length-1; ++j) {
-            for(let k=0; k<=tempGrid[0].length-1; ++k) {
-                if(j+3<tempGrid.length && k+3<tempGrid[0].length) {
-                    if((tempGrid[j][k]===player) && (tempGrid[j+1][k+1] === player) && (tempGrid[j+2][k+2]=== player) && (tempGrid[j+3][k+3] === player)) {
+        for (let j = 0; j <= tempGrid.length - 1; ++j) {
+            for (let k = 0; k <= tempGrid[0].length - 1; ++k) {
+                if (j + 3 < tempGrid.length && k + 3 < tempGrid[0].length) {
+                    if ((tempGrid[j][k] === player) && (tempGrid[j + 1][k + 1] === player) && (tempGrid[j + 2][k + 2] === player) && (tempGrid[j + 3][k + 3] === player)) {
                         setGameOver(true)
                         setPlayerWin(player)
                         setStartGame(false)
@@ -66,16 +66,29 @@ const Connect4 = () => {
         }
 
         // check for connect-4
-        for(let j=0; j<=tempGrid.length-1; ++j) {
-            for(let k=0; k<=tempGrid[0].length-1; ++k) {
-                if(j-3>=0 && k+3<tempGrid[0].length) {
-                    if((tempGrid[j][k]===player) && (tempGrid[j-1][k+1] === player) && (tempGrid[j-2][k+2]=== player) && (tempGrid[j-3][k+3] === player)) {
+        for (let j = 0; j <= tempGrid.length - 1; ++j) {
+            for (let k = 0; k <= tempGrid[0].length - 1; ++k) {
+                if (j - 3 >= 0 && k + 3 < tempGrid[0].length) {
+                    if ((tempGrid[j][k] === player) && (tempGrid[j - 1][k + 1] === player) && (tempGrid[j - 2][k + 2] === player) && (tempGrid[j - 3][k + 3] === player)) {
                         setGameOver(true)
                         setPlayerWin(player)
                         setStartGame(false)
                     }
                 }
             }
+        }
+
+        let flag = false;
+        for(let j=0; j<tempGrid.length; ++j) {
+            for(let k=0; k<tempGrid[0].length; ++k) {
+                if(tempGrid[j][k] === 0) {
+                    flag = true;
+                }
+            }
+        }
+        if(flag === false) {
+            setGameOver(true);
+            setStartGame(false)
         }
 
         // change grid after player click
@@ -115,8 +128,8 @@ const Connect4 = () => {
     }
 
     const getTextBasedOnCondition = () => {
-        if(gameOver) {
-            if(playerWin === 0) {
+        if (gameOver) {
+            if (playerWin === 0) {
                 return 'Draw!!! Try Another one'
             } else {
                 return `Player ${playerWin} Won :) Congrats`
@@ -126,9 +139,28 @@ const Connect4 = () => {
         }
     }
 
+    const getClassNameForInfo = () => {
+        if (gameOver) {
+            if (playerWin === 0) {
+                return 'connect4-player-info gray';
+            } else if (playerWin === 1) {
+                return 'connect4-player-info red';
+            } else if (playerWin === 2) {
+                return 'connect4-player-info yellow';
+            }
+        } else {
+            if (player === 1) {
+                return 'connect4-player-info red';
+            } else if (player === 2) {
+                return 'connect4-player-info yellow';
+            }
+        }
+        return 'connect4-player-info';
+    }
+
     return (
         <div className={`connect4-game-area ${!startGame ? 'blurred' : ''}`}>
-            <div className='connect4-player-info'>
+            <div className={getClassNameForInfo()}>
                 {
                     getTextBasedOnCondition()
                 }
