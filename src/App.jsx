@@ -1,12 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
+import Home from './pages/Home/Home';
 import './App.css'; // Import your global CSS
 import SnakeGame from './pages/SnakeGame/SnakeGame';
 import Navbar from './components/Navbar';
 import Tetris from './pages/Tetris/components/Tetris';
+import Connect4 from './pages/Connect4/Connect4';
 
 const App = () => {
   return (
@@ -15,12 +14,11 @@ const App = () => {
         <Navbar />
         <div className="main-content">
           <Routes>
-          <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
             <Route path="/snake" element={<SnakeGame />} />
             <Route path="/tetris" element={<Tetris />} />
+            <Route path="/connect4" element={<Connect4 />} />
           </Routes>
         </div>
       </div>

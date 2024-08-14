@@ -13,6 +13,7 @@
   border: none;
   background-color: #fff;
   padding: 10px;
+  z-index: 5;
 }
 
 /* Individual lines in the hamburger icon */

@@ -1,0 +1,109 @@
+.connect4-game-area {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+@media (max-width: 768px) {
+    .connect4-game-area {
+        max-width: 70vw;
+    }
+}
+
+.connect4-start-game {
+    position: absolute;
+    font-size: medium;
+    z-index: 6;
+}
+
+.connect4-player-info {
+    padding: 10px;
+    margin-bottom: 50px;
+    width: auto;
+    height: auto;
+    border: 1px double gray;
+}
+
+.connect4-action-dots {
+    display: grid;
+    grid-template-columns: repeat(7, 50px);
+    grid-template-rows: repeat(1, 50px);
+    grid-gap: 10px;
+    margin-bottom: 20px;
+}
+
+.connect4-action-dot {
+    border: 1px solid gray;
+    border-radius: 50%;
+}
+
+.connect4-game-board {
+    display: grid;
+    grid-template-columns: repeat(7, 50px);
+    grid-template-rows: repeat(6, 50px);
+    grid-gap: 10px;
+    border: 1px solid black;
+    padding: 10px 30px 10px 30px;
+    background-color: rgb(68, 68, 218);
+}
+
+@media (max-width: 768px) {
+    .connect4-action-dots {
+        display: grid;
+        grid-template-columns: repeat(7, 30px);
+        grid-template-rows: repeat(1, 30px);
+        grid-gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .connect4-game-board {
+        display: grid;
+        grid-template-columns: repeat(7, 30px);
+        grid-template-rows: repeat(6, 30px);
+        grid-gap: 10px;
+        border: 1px solid black;
+        padding: 10px 30px 10px 30px;
+        background-color: rgb(68, 68, 218);
+    }
+
+    .connect4-action-dot.red:active {
+        background-color: rgb(245, 245, 150);
+        transform: scale(0.95);
+    }
+
+    .connect4-action-dot.yellow:active {
+        background-color: rgb(246, 128, 128); 
+        transform: scale(0.95);
+    }
+}
+
+@media (min-width: 769px) {
+    .connect4-action-dot.red:hover {
+        background-color: red;
+    }
+
+    .connect4-action-dot.yellow:hover {
+        background-color: yellow;
+    }
+}
+
+.connect4-dot {
+    border: 1px solid gray;
+    border-radius: 50%;
+}
+
+.connect4-dot.red {
+    background-color: red;
+}
+
+.connect4-dot.yellow {
+    background-color: yellow;
+}
+
+.connect4-dot.white {
+    background-color: white;
+}

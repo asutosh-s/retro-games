@@ -18,10 +18,9 @@ const Navbar = () => {
       {isOpen && (
         <div className="dropdown">
           <a href="home" className="dropdown-link">Home</a>
-          <a href="about" className="dropdown-link">About</a>
-          <a href="contact" className="dropdown-link">Contact</a>
           <a href="snake" className="dropdown-link">Snake Game</a>
           <a href="tetris" className="dropdown-link">Tetris</a>
+          <a href="connect4" className="dropdown-link">Connect4</a>
         </div>
       )}
     </div>
