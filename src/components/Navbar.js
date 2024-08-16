@@ -21,6 +21,7 @@ const Navbar = () => {
           <a href="snake" className="dropdown-link">Snake Game</a>
           <a href="tetris" className="dropdown-link">Tetris</a>
           <a href="connect4" className="dropdown-link">Connect4</a>
+          <a href="flappy" className="dropdown-link">Flappy Bird</a>
         </div>
       )}
     </div>

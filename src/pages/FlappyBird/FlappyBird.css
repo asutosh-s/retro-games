@@ -1,0 +1,48 @@
+/* FlappyBird.css */
+.flappy-game-area {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.flappy-grid {
+    display: grid;
+    grid-template-columns: repeat(40, 20px); /* 40 columns, adjust size as needed */
+    grid-template-rows: repeat(20, 20px);    /* 20 rows, adjust size as needed */
+    position: relative; /* Required for smooth transitions */
+}
+
+.flappy-grid-item {
+    background-color: white;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.flappy {
+    position: absolute; /* Use absolute positioning to enable transform */
+    width: 20px; /* Match grid cell size */
+    height: 20px; /* Match grid cell size */
+    transition: transform 0.8s ease; /* Smooth transition for movement */
+    z-index: 2;
+}
+
+.flappy-grid-item.obstacle {
+    background-color: rgb(14, 79, 14);
+}
+
+.flappy-start-button {
+    position: absolute;
+    font-size: medium;
+    z-index: 6;
+}
+
+.flappy-game-over {
+    position: absolute;
+    font-size: medium;
+    z-index: 6;
+    background-color: gray;
+}

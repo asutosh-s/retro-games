@@ -6,6 +6,7 @@ import SnakeGame from './pages/SnakeGame/SnakeGame';
 import Navbar from './components/Navbar';
 import Tetris from './pages/Tetris/components/Tetris';
 import Connect4 from './pages/Connect4/Connect4';
+import FlappyBird from './pages/FlappyBird/FlappyBird';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/snake" element={<SnakeGame />} />
             <Route path="/tetris" element={<Tetris />} />
             <Route path="/connect4" element={<Connect4 />} />
+            <Route path='/flappy' element={<FlappyBird />} />
           </Routes>
         </div>
       </div>
