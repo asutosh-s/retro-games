@@ -9,29 +9,87 @@
     width: 100vw;
 }
 
+.flappy-back {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 800px;
+    border: 1px solid black;
+    background-image: url('../../../public/img/flappy-bg.jpg');
+    background-repeat: repeat-x;
+    /* Ensures the image repeats horizontally */
+    animation: moveBackground 10s linear infinite;
+    /* Adjust the duration as needed */
+}
+
+/* Keyframes for the animation */
+@keyframes moveBackground {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -800px 0;
+        /* Should match the width of your element */
+    }
+}
+
+
 .flappy-grid {
     display: grid;
-    grid-template-columns: repeat(40, 20px); /* 40 columns, adjust size as needed */
-    grid-template-rows: repeat(20, 20px);    /* 20 rows, adjust size as needed */
-    position: relative; /* Required for smooth transitions */
+    grid-template-columns: repeat(40, 20px);
+    /* 40 columns, adjust size as needed */
+    grid-template-rows: repeat(20, 20px);
+    /* 20 rows, adjust size as needed */
+    position: relative;
+    /* Required for smooth transitions */
 }
 
 .flappy-grid-item {
-    background-color: white;
-    transition: transform 0.3s ease;
     z-index: 1;
+    transition: transform 0.8s ease;
+    position: absolute;
+    width: 20px;
+    height: 20px;
 }
 
 .flappy {
-    position: absolute; /* Use absolute positioning to enable transform */
-    width: 20px; /* Match grid cell size */
-    height: 20px; /* Match grid cell size */
-    transition: transform 0.8s ease; /* Smooth transition for movement */
-    z-index: 2;
+    position: absolute;
+    /* Use absolute positioning to enable transform */
+    width: 40px;
+    /* Match grid cell size */
+    height: 40px;
+    /* Match grid cell size */
+    /* transition: transform 0.8s ease;  */
+    z-index: 4;
+    /* background-image: 'url(/img/flappy.png)'; */
+    animation: toggleBackground 0.3s linear infinite;
+}
+
+@keyframes toggleBackground {
+    0% {
+        background-image: url('../../../public/img/bird_down.png');
+    }
+
+    50% {
+        background-image: url('../../../public/img/bird_up.png');
+    }
+
+    100% {
+        background-image: url('../../../public/img/bird_down.png');
+    }
 }
 
 .flappy-grid-item.obstacle {
-    background-color: rgb(14, 79, 14);
+    background-image: url('../../../public/img/brick.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-color: gray; */
+    transition: transform 0.8s ease;
+    z-index: 4;
 }
 
 .flappy-start-button {
@@ -41,8 +99,141 @@
 }
 
 .flappy-game-over {
+    padding: 10px 0px;
+    text-align: center;
+    width: 100%;
     position: absolute;
+    top: 30%;
     font-size: medium;
     z-index: 6;
     background-color: gray;
+}
+
+.flappy-score {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: gainsboro;
+    position: absolute;
+    top: 10%;
+}
+
+.flappy-space-button {
+    position: absolute;
+    padding: 10px;
+    margin-top: 10px;
+    bottom: -50%;
+}
+
+@media (max-width: 768px) {
+
+    /* FlappyBird.css */
+    .flappy-game-area {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .flappy-back {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+        width: 400px;
+        border: 1px solid black;
+        background-image: url('../../../public/img/bg-modified.png');
+        background-repeat: repeat-x;
+        /* Ensures the image repeats horizontally */
+        animation: moveBackground 10s linear infinite;
+        /* Adjust the duration as needed */
+    }
+
+    /* Keyframes for the animation */
+    @keyframes moveBackground {
+        from {
+            background-position: 0 0;
+        }
+
+        to {
+            background-position: -400px 0;
+            /* Should match the width of your element */
+        }
+    }
+
+
+    .flappy-grid {
+        display: grid;
+        grid-template-columns: repeat(40, 10px);
+        /* 40 columns, adjust size as needed */
+        grid-template-rows: repeat(20, 10px);
+        /* 20 rows, adjust size as needed */
+        position: relative;
+        /* Required for smooth transitions */
+    }
+
+    .flappy-grid-item {
+        z-index: 1;
+        transition: transform 0.8s ease;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+    }
+
+    .flappy {
+        position: absolute;
+        /* Use absolute positioning to enable transform */
+        width: 20px;
+        /* Match grid cell size */
+        height: 20px;
+        /* Match grid cell size */
+        /* transition: transform 0.8s ease;  */
+        z-index: 4;
+        /* background-image: 'url(/img/flappy.png)'; */
+        animation: toggleBackground 0.3s linear infinite;
+    }
+
+    @keyframes toggleBackground {
+        0% {
+            background-image: url('../../../public/img/bird_down.png');
+        }
+
+        50% {
+            background-image: url('../../../public/img/bird_up.png');
+        }
+
+        100% {
+            background-image: url('../../../public/img/bird_down.png');
+        }
+    }
+
+    .flappy-grid-item.obstacle {
+        background-image: url('../../../public/img/brick.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* background-color: gray; */
+        transition: transform 0.8s ease;
+        z-index: 4;
+    }
+
+    .flappy-start-button {
+        position: absolute;
+        font-size: medium;
+        z-index: 6;
+    }
+
+    .flappy-game-over {
+        padding: 10px 0px;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        top: 10%;
+        font-size: medium;
+        z-index: 6;
+        background-color: gray;
+    }
 }
