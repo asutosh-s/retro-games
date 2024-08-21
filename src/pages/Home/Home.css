@@ -1,0 +1,27 @@
+.home-area {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(71, 71, 71);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.home-brief {
+  right: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(22, 22, 22);
+  font-weight: bold;
+}
+
+@media (max-width:768px) {
+  .home-brief {
+    margin-left: 5%;
+  } 
+
+  .home-area {
+    align-items: flex-start;
+    background-color: rgb(117, 117, 117);
+  }
+}

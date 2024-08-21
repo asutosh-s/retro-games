@@ -10,6 +10,7 @@
     flex-direction: column;
     font-family: monospace;
     border-radius: 10px;
+    background: radial-gradient(circle, #875c51, #feb47b);
 }
 
 /* Button styles */
@@ -55,8 +56,7 @@ button:hover {
 /* Count styling */
 .count {
     font-size: 2rem;
-    color: #eb2d2d;
-    opacity: 0.5;
+    color: #ff3e3e;
     margin-bottom: 10px;
 }
 
@@ -66,9 +66,8 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
-    margin-top: 50px;
+    height: 100vh;
+    width: 100vw;
 }
 
 /* Modal button styles */

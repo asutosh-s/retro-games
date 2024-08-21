@@ -5,7 +5,8 @@ function Food({ position, type }) {
                 style={{
                     width: "12px",
                     height: "12px",
-                    backgroundColor: "#339933",
+                    backgroundColor: "#199939",
+                    border: "1px solid #7c0",
                     margin: "5px",
                     position: "absolute",
                     left: `${position.x}%`,

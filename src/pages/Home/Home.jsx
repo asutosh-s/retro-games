@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import './Home.css';
+
+import TypingEffect from './Typing';
+import TorchEffect from './TorchEffect';
 
 const Home = () => {
   return (
-    <div>
-      <h1>Home Page</h1>
-      <p>Welcome to the Home Page!</p>
+    <div className='home-area'>
+      <TorchEffect />
+      <TypingEffect className='home-name' text="HELLO, I am Asutosh!" speed={200} />
+      <div className='home-brief'>software engineer</div>
     </div>
   );
 };

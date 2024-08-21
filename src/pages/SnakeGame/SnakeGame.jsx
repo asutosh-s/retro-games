@@ -187,7 +187,7 @@ function SnakeGame() {
   });
 
   return (
-    <div {...handlers}>
+    <div {...handlers} className='snake-area'>
       <div className='game-area'>
         <div className="count"> score : {score} </div>
         <div

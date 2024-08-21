@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Tetris from './pages/Tetris/components/Tetris';
 import Connect4 from './pages/Connect4/Connect4';
 import FlappyBird from './pages/FlappyBird/FlappyBird';
+import DrawingCanvas from './pages/DrawingCanvas/DrawingCanvas';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
             <Route path="/tetris" element={<Tetris />} />
             <Route path="/connect4" element={<Connect4 />} />
             <Route path='/flappy' element={<FlappyBird />} />
+            <Route path='/draw' element={<DrawingCanvas />} />
           </Routes>
         </div>
       </div>

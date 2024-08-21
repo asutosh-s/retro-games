@@ -1,67 +1,119 @@
+.navbar {
+  position: relative;
+  z-index: 10;
+}
+
 /* Styles for the hamburger icon */
 .hamburger {
-  position: absolute;
-  top: 0;
-  right: 0;
+  position: fixed;
+  top: 20px;
+  left: 20px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 30px;
-  height: 21px;
-  background: none;
-  border: none;
-  background-color: #fff;
-  padding: 10px;
-  z-index: 5;
+  justify-content: space-around;
+  width: 40px;
+  height: 30px;
+  background-color: #333;
+  border-radius: 4px;
+  z-index: 9;
+  transition: background-color 0.3s;
+  padding: 5px 7px;
+  opacity: 0.7;
+}
+
+.hamburger:hover {
+  background-color: #000000;
 }
 
 /* Individual lines in the hamburger icon */
 .line {
-  background-color: #333;
-  height: 3px;
-  width: 30px;
-  margin: 3px 0;
+  background-color: #a5a5a5;
+  height: 2px;
+  width: 40px;
+  border-radius: 2px;
   transition: 0.3s;
+
+  /* border: 1px solid red; */
 }
 
-/* Styles for the dropdown menu */
-.dropdown {
-  position: absolute;
-  top: 50px; /* Adjust based on the height of the hamburger icon */
-  right: 0;
-  background-color: #333;
-  border-radius: 5px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  width: 150px; /* Adjust width as needed */
-  max-width: 100%;
-  z-index: 5;
+/* Styles for the side nav bar */
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  color: white;
+  overflow-x: hidden;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.sidenav.open {
+  transform: translateX(0);
+}
+
+/* Logo or Brand Section */
+.sidenav .logo {
+  padding: 20px;
+  text-align: center;
+  background-color: #222;
+  border-bottom: 1px solid #444;
+}
+
+.sidenav .logo img {
+  height: 50px;
+  width: auto;
+}
+
+.sidenav .logo h1 {
+  margin: 10px 0 0;
+  font-size: 20px;
+  color: #fff;
 }
 
 /* Dropdown link styles */
 .dropdown-link {
-  color: white;
+  color: #ccc;
   text-decoration: none;
-  padding: 10px;
-  border-bottom: 1px solid #444;
+  padding: 15px 20px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .dropdown-link:hover {
-  background-color: #555;
+  background-color: #575757;
+  color: #fff;
 }
 
-.dropdown-link:last-child {
-  border-bottom: none;
+/* Add a hover effect for the active link */
+.dropdown-link.active {
+  background-color: #444;
+  color: #fff;
 }
 
 /* Responsive styles */
 @media (max-width: 768px) {
-  .dropdown {
-    width: 40vw; /* Full-width dropdown on small screens */
-    right: 0;
-    top: 50px; /* Adjust based on the height of the hamburger icon */
+  .sidenav {
+      width: 60vw;
+      /* Adjust width for smaller screens */
+  }
+
+  .hamburger {
+      top: 10px;
+      left: 10px;
+      width: 35px;
+      height: 25px;
+  }
+
+  .line {
+      width: 35px;
+      height: 3px;
   }
 }

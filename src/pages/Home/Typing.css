@@ -1,0 +1,25 @@
+/* TypingEffect.css */
+.typing-container {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 48px;
+    font-stretch: condensed;
+    font-weight: 800;
+}
+
+.typing-container:hover {
+    text-shadow: 0 0 10px rgba(209, 255, 209, 0.7);
+}
+
+@media (max-width: 768px) {
+    .typing-container {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 24px;
+        font-stretch: condensed;
+        font-weight: 800;
+        margin-left: 5%;
+    }
+
+    .typing-container:hover {
+        text-shadow: 0 0 10px rgba(169, 255, 169, 0.7);
+    }
+}
