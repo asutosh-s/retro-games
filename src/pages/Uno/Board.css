@@ -1,0 +1,291 @@
+.game-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.start-game {
+    padding: 10px;
+    margin-bottom: 50px;
+    font-size: large;
+    background-color: goldenrod;
+    color: purple;
+}
+
+/* General Board Styling */
+.board {
+    position: relative;
+    margin: auto;
+    background-color: #f0f0f0;
+    border: 2px solid #000;
+}
+
+/* Large Screens (Laptops and Desktops) */
+@media (min-width: 769px) {
+    .board {
+        width: 40vw;
+        height: 40vw;
+        max-width: 800px;
+        max-height: 800px;
+    }
+}
+
+/* Small Screens (Tablets and Mobile) */
+@media (max-width: 768px) {
+    .board {
+        width: 100vw;
+        height: 100vw;
+    }
+}
+
+.players {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.pile-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.show-color {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.modal-overlay {
+    position: fixed;
+    /* Ensures the modal covers the entire viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    /* Ensure it is on top of other content */
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    /* Positioned relative to the overlay */
+    z-index: 1001;
+    /* Ensure it is on top of the overlay */
+}
+
+.color-options {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.color-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+}
+
+.color-box:hover {
+    border: 2px solid black;
+}
+
+.pile-bottom .uno-card {
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+    z-index: 2;
+}
+
+.bottom-card {
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+    z-index: 10;
+}
+
+.player-top {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: flex-end;
+}
+
+.player-bottom {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transform: translateX(-50%);
+    bottom: 0;
+    left: 50%;
+    align-items: flex-start;
+}
+
+.player-left {
+    left: -40%;
+    align-items: flex-start;
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(50%) rotate(-90deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.player-right {
+    right: -40%;
+    align-items: flex-start;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Player Styling */
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-name {
+    font-weight: bold;
+}
+
+/* Player Deck Styling */
+.player-deck {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    max-width: 70%;
+    position: relative;
+}
+
+/* UNO card styling */
+.uno-card {
+    width: 90px;
+    height: 110px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
+}
+
+.uno-card.centered {
+    position: absolute;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.player-deck .uno-card:not(:first-child) {
+    margin-left: -10%;
+}
+
+.player-left .player-deck .uno-card:not(:first-child).centered {
+    margin-left: 10%;
+}
+
+.player-deck:hover .uno-card {
+    z-index: 1;
+}
+
+.player-deck:hover .uno-card:hover {
+    z-index: 5;
+    transform: scale(1.2);
+}
+
+.uno-card img {
+    width: 80%;
+    height: auto;
+}
+
+.uno-uno {
+    all: unset;
+    position: absolute;
+    right: 0;
+    bottom: 3%;
+    transform: translate(-30%, -30%);
+    z-index: 10;
+    font-size: 20px;
+    color: rgb(133, 133, 0);
+
+    border: 8px solid;
+    background-color: yellow;
+    border-radius: 5px;
+
+    border-top-color: rgb(228, 229, 171);
+    border-left-color: rgb(220, 202, 0);
+    border-bottom-color: rgb(127, 126, 80);
+    border-right-color: rgb(72, 76, 48);
+}
+
+.uno-uno:active {
+    background-color: rgb(255, 255, 128); 
+    border-top-color: rgb(255, 255, 190);
+    border-left-color: rgb(255, 245, 128);
+    border-bottom-color: rgb(150, 150, 100);
+    border-right-color: rgb(90, 90, 60);
+    transform: translate(-50%, -50%) scale(0.98); 
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2); 
+  }
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .uno-card {
+        width: 60px;
+        height: 75px;
+        font-size: 14px;
+    }
+
+    .uno-card img {
+        width: 90%;
+    }
+
+    .color-box {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+    }
+
+    .uno-uno {
+        font-size: 20px;
+        border: 5px solid;
+        border-top-color: rgb(228, 229, 171);
+        border-left-color: rgb(220, 202, 0);
+        border-bottom-color: rgb(127, 126, 80);
+        border-right-color: rgb(72, 76, 48);
+    }
+}
+
+.display-info {
+    padding: 10px;
+    background-color: rgb(255, 205, 205);
+    margin: 10px 0px;
+}

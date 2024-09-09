@@ -51,6 +51,9 @@ const Navbar = () => {
         <Link to="/flappy" className={`dropdown-link ${currentPath === '/flappy' ? 'active' : ''}`} onClick={toggleMenu}>
           Flappy Bird
         </Link>
+        <Link to="/uno" className={`dropdown-link ${currentPath === '/uno' ? 'active' : ''}`} onClick={toggleMenu}>
+          Uno
+        </Link>
         <Link to="/draw" className={`dropdown-link ${currentPath === '/draw' ? 'active' : ''}`} onClick={toggleMenu}>
           Drawing Canvas
         </Link>
